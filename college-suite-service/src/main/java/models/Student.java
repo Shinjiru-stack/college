@@ -1,0 +1,74 @@
+package models;
+
+import java.util.List;
+import java.util.UUID;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.immutables.value.Value.Immutable;
+
+import javax.validation.constraints.NotNull;
+
+@JsonSerialize
+@JsonDeserialize(as = ImmutableStudent.class)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonIgnoreProperties(ignoreUnknown = true)
+@Immutable
+public interface Student extends User {
+
+    /**
+     *
+     * @return
+     */
+    UUID getId();
+    /**
+     *
+     * @return
+     */
+    @NotNull
+
+    String getName() ;
+    /**
+     *
+     * @return
+     */
+    @NotNull
+    String getFirstName() ;
+    /**
+     *
+     * @return
+     */
+    @NotNull
+
+    String getLastName() ;
+    /**
+     *
+     * @return
+     */
+    @NotNull
+    String getEmail();
+
+    /**
+     *
+     * @return
+     */
+    @NotNull
+    Semester getSemester();
+
+    /**
+     *
+     * @return
+     */
+    @NotNull
+    List<Subject> getSubject();
+
+    /**
+     *
+     * @return
+     */
+    @NotNull
+    List<Marks> getMarks();
+
+}

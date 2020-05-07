@@ -1,0 +1,8 @@
+*.class
+dependency-reduced-pom.xml
+*/target
+target
+
+# IntelliJ artifacts
+*.iml
+/.idea
